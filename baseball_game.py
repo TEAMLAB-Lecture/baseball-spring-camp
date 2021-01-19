@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import random
-
+import re
 
 def get_random_number():
     # Helper Function - 지우지 말 것
@@ -114,7 +114,7 @@ def is_validated_number(user_input_number):
     # '''
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
-
+    
     result = None
     # ==================================
     return result
@@ -238,8 +238,12 @@ def is_no(one_more_input):
     # '''
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
-
-    result = None
+    one_more_input = one_more_input.lower()
+    result = False
+    if one_more_input == "n":
+        result = True
+    elif one_more_input == 'no':
+        result = True
     # ==================================
     return result
 
