@@ -31,8 +31,10 @@ def is_digit(user_input_number):
     # '''
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
-    result = None
-
+    result = True
+    p = re.compile("[0-9]*")
+    if p.fullmatch(user_input_number) is None:
+        result = False
     # ==================================
     return result
 
@@ -124,9 +126,9 @@ def is_validated_number(user_input_number):
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
     result = True
-    p = re.compile("[0-9]*")
-    if p.fullmatch(user_input_number) is None:
-        result = False
+    result &= is_digit(user_input_number)
+    result &= is_between_100_and_999(user_input_number)
+    result &= not is_duplicated_number(user_input_number)
     # ==================================
     return result
 
