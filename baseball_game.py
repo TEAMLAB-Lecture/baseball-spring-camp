@@ -219,8 +219,12 @@ def is_yes(one_more_input):
     # '''
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
-
-    result = None
+    one_more_input = one_more_input.lower()
+    result = False
+    if one_more_input == "y":
+        result = True
+    elif one_more_input == "yes":
+        result = True
     # ==================================
     return result
 
