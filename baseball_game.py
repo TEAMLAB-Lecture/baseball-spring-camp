@@ -126,9 +126,12 @@ def is_validated_number(user_input_number):
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
     result = True
-    result &= is_digit(user_input_number)
-    result &= is_between_100_and_999(user_input_number)
-    result &= not is_duplicated_number(user_input_number)
+    if not is_digit(user_input_number):
+        result = False
+    elif not is_between_100_and_999(user_input_number):
+        result = False
+    elif is_duplicated_number(user_input_number):
+        result = False
     # ==================================
     return result
 
@@ -189,8 +192,8 @@ def get_strikes_or_ball(user_input_number, random_number):
     # '''
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
-
     result = None
+    
     # ==================================
     return result
 
@@ -274,7 +277,6 @@ def main():
     print("Random Number is : ", random_number)
     # ===Modify codes below=============
     # 위의 코드를 포함하여 자유로운 수정이 가능함
-
 
     # ==================================
     print("Thank you for using this program")
