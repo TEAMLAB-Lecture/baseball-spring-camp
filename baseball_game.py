@@ -289,7 +289,28 @@ def main():
     print("Random Number is : ", random_number)
     # ===Modify codes below=============
     # 위의 코드를 포함하여 자유로운 수정이 가능함
-
+    while True:
+        user_input_number = input("Input guess number : ")
+        while not is_validated_number(user_input_number):
+            if is_digit(user_input_number) and int(user_input_number) == 0:
+                break
+            print("Wrong Input, Input Again.")
+            user_input_number = input("Input guess number : ")
+        if int(user_input_number) == 0:
+            break
+        result = get_strikes_or_ball(user_input_number, random_number)
+        print("Strikes : {} , Balls : {}".format(result[0], result[1]))
+        if result[0] == 3:
+            yes_or_no = input("You win, one more(Y/N): ")
+            while not is_yes(yes_or_no) and not is_no(yes_or_no):
+                print("Wrong Input, Input Again.")
+                yes_or_no = input("You win, one more(Y/N): ")
+            if is_yes(yes_or_no):
+                random_number = str(get_not_duplicated_three_digit_number())
+                print("Random Number is : ", random_number)
+                continue
+            else:
+                break
     # ==================================
     print("Thank you for using this program")
     print("End of the Game")
