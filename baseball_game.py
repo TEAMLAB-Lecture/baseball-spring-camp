@@ -60,7 +60,7 @@ def is_between_100_and_999(user_input_number):
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
     user_input = int(user_input_number)
     result = False
-    if result >= 100 and result < 1000:
+    if user_input >= 100 and user_input < 1000:
         result = True
     # ==================================
     return result
@@ -123,8 +123,10 @@ def is_validated_number(user_input_number):
     # '''
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
-
-    result = None
+    result = True
+    p = re.compile("[0-9]*")
+    if p.fullmatch(user_input_number) is None:
+        result = False
     # ==================================
     return result
 
@@ -150,8 +152,10 @@ def get_not_duplicated_three_digit_number():
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
     # get_random_number() 함수를 사용하여 random number 생성
-
-    result = None
+    res = str(get_random_number())
+    while is_duplicated_number(res):
+        res = str(get_random_number())
+    result = res
     # ==================================
     return result
 
