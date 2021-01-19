@@ -88,8 +88,15 @@ def is_duplicated_number(three_digit):
     # '''
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
-
-    result = None
+    is_dup = [False for _ in range(10)]
+    result = False
+    for c in three_digit:
+        val = int(c)
+        if is_dup[val]:
+            result = True
+            break
+        else:
+            is_dup[val] = True
     # ==================================
     return result
 
